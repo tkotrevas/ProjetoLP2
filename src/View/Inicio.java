@@ -139,16 +139,19 @@ public class Inicio extends javax.swing.JFrame {
         Arqueiro a = new Arqueiro();
         
         new Introducao().setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnArqueiroActionPerformed
 
     private void btnEspadachimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEspadachimActionPerformed
         Espadachim e = new Espadachim();
-        
+        new Introducao().setVisible(true);
+         dispose();
     }//GEN-LAST:event_btnEspadachimActionPerformed
 
     private void btnMagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMagoActionPerformed
       Mago m = new Mago();
-      
+      new Introducao().setVisible(true);
+       dispose();
     }//GEN-LAST:event_btnMagoActionPerformed
 
     /**

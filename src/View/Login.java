@@ -168,7 +168,7 @@ public class Login extends javax.swing.JFrame {
         String sql;
         try {
              con = new Conexao().getConnection();
-            sql = "SELECT login, senha FROM usuarioNFP WHERE login=? and senha=?";
+            sql = "SELECT login, senha FROM jogadorRPG WHERE login=? and senha=?";
             PreparedStatement ps;
            
             ps = con.prepareStatement(sql);
