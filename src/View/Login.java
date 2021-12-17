@@ -139,8 +139,8 @@ public class Login extends javax.swing.JFrame {
         if (resposta == true) {
 
             JOptionPane.showMessageDialog(null, "Bem Vindo:\n"+login.toUpperCase(), "Logado!", JOptionPane.INFORMATION_MESSAGE);
-            Inicio e = new Inicio();
-            e.setVisible(true);
+            Menu m = new Menu();
+            m.setVisible(true);
             dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao logar" ,"Erro", JOptionPane.ERROR_MESSAGE);
