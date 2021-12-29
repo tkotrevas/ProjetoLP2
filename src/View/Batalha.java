@@ -37,8 +37,8 @@ public class Batalha extends javax.swing.JFrame {
         btnAtaque = new javax.swing.JButton();
         btnDefesa = new javax.swing.JButton();
         btnEspecial = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        Dialogue = new javax.swing.JLabel();
+        Round = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,11 +63,13 @@ public class Batalha extends javax.swing.JFrame {
 
         btnEspecial.setText("jButton3");
 
-        jLabel1.setText("jLabel1");
+        Dialogue.setBackground(new java.awt.Color(204, 255, 204));
+        Dialogue.setText("jLabel1");
+        Dialogue.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Round");
-        jLabel2.setToolTipText("");
+        Round.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Round.setText("Round");
+        Round.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,7 +78,7 @@ public class Batalha extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Dialogue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -87,11 +89,12 @@ public class Batalha extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(barVidaPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(130, 130, 130)
+                                        .addComponent(Round, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(Personagem, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(VS, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(16, 16, 16)
+                                        .addComponent(VS, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(43, 43, 43))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnEspecial)
@@ -108,16 +111,15 @@ public class Batalha extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(98, 98, 98)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Inimigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Personagem, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
-                                .addGap(17, 17, 17)
+                            .addComponent(Inimigo, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnAtaque)
                                 .addGap(79, 79, 79)
-                                .addComponent(btnEspecial))))
+                                .addComponent(btnEspecial))
+                            .addComponent(Personagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Round, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(127, 127, 127)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnDefesa)
@@ -127,7 +129,7 @@ public class Batalha extends javax.swing.JFrame {
                     .addComponent(barVidaPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(barVidaInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Dialogue, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -141,8 +143,8 @@ public class Batalha extends javax.swing.JFrame {
     private void definirTodasImagens(){
         DefinicoesDeImagem defImg = new DefinicoesDeImagem();
         
-        String caminho;
-        defImg.escalonarImagem(caminho, JLblImg);
+        String caminho = "C:\\Users\\William\\Desktop\\IFSP\\2 Semestre\\LP2 - Linguagem de Programação 2\\Programas em Java\\ProjetoLP2\\src\\Imagens\\espadachim.jpg";
+        defImg.escalonarImagem(caminho, Personagem);
         
     }
     /**
@@ -181,15 +183,15 @@ public class Batalha extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Dialogue;
     private javax.swing.JLabel Inimigo;
     private javax.swing.JLabel Personagem;
+    private javax.swing.JLabel Round;
     private javax.swing.JLabel VS;
     private javax.swing.JProgressBar barVidaInimigo;
     private javax.swing.JProgressBar barVidaPersonagem;
     private javax.swing.JButton btnAtaque;
     private javax.swing.JButton btnDefesa;
     private javax.swing.JButton btnEspecial;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
