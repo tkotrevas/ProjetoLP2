@@ -2,12 +2,15 @@
 package View;
 import Classes.Personagem;
 import View.Inicio;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Itens extends javax.swing.JFrame {
 
     public Itens() {
         initComponents();
     }
+    public Personagem personagem = new Personagem("null", null, 0,0,0);
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -53,9 +56,9 @@ public class Itens extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Ataque: +10");
+        jLabel4.setText("Ataque: +2");
 
-        jLabel5.setText("Defesa: +10");
+        jLabel5.setText("Defesa: +2");
 
         jLabel6.setText("Vida: +10");
 
@@ -128,23 +131,23 @@ public class Itens extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     public Personagem receberPersonagem(Personagem personagem){
         System.out.println("def" + personagem.getDef());
         return personagem;
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        personagem.setAtk(personagem.getAtk() + 2);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        personagem.setAtk(personagem.getDef() + 2);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-        new Introducao().setVisible(true);
-        dispose();
+        personagem.setAtk(personagem.getVida() + 10);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

@@ -145,12 +145,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ataque: +10"/>
+            <Property name="text" type="java.lang.String" value="Ataque: +2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Defesa: +10"/>
+            <Property name="text" type="java.lang.String" value="Defesa: +2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
