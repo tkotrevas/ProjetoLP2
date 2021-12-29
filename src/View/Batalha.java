@@ -18,6 +18,7 @@ public class Batalha extends javax.swing.JFrame {
      */
     public Batalha() {
         initComponents();
+        definirTodasImagens();
     }
 
     /**
