@@ -1,7 +1,7 @@
 
 package Classes;
 
-public class Itens {
+public class Item {
 
     private int ataque;
     private int defesa;

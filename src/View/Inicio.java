@@ -2,14 +2,16 @@
 package View;
 
 import Classes.Personagem;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Inicio extends javax.swing.JFrame {
-Personagem p = new Personagem();
+Personagem p = new Personagem("null",null,0,0,0);
+Introducao i = new Introducao();
 
 
     public Inicio() {
         initComponents();
-        
     }
 public Object retornap (){
     return  p;
@@ -124,28 +126,31 @@ public Object retornap (){
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnArqueiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArqueiroActionPerformed
-        p.setTipo("Arqueiro");
-        p.setAtaque(8);
-        p.setDefesa(2);
+        p.setRaca("Arqueiro");
+        p.setAtk(8);
+        p.setDef(2);
         p.setVida(10);
+        i.receberPersonagem(p);
         new Introducao().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnArqueiroActionPerformed
 
     private void btnEspadachimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEspadachimActionPerformed
-        p.setTipo("Espadachim");
-        p.setAtaque(7);
-        p.setDefesa(6);
+        p.setRaca("Espadachim");
+        p.setAtk(7);
+        p.setDef(6);
         p.setVida(10);
+        i.receberPersonagem(p);
         new Introducao().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnEspadachimActionPerformed
 
     private void btnMagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMagoActionPerformed
-        p.setTipo("Mago");
-        p.setAtaque(8);
-        p.setDefesa(5);
+        p.setRaca("Mago");
+        p.setAtk(8);
+        p.setDef(5);
         p.setVida(10);
+        i.receberPersonagem(p);
         new Introducao().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnMagoActionPerformed

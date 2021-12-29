@@ -1,4 +1,5 @@
 package View;
+import Classes.Personagem;
 import View.Inicio;
 import java.awt.Image;
 import static java.awt.image.ImageObserver.HEIGHT;
@@ -12,7 +13,6 @@ public class Introducao extends javax.swing.JFrame {
     public Introducao() {
         initComponents();
          txtMensageiro.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("../Imagens/mensageiro.png")).getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH)));
-         Inicio i = new Inicio();
          
     }
   
@@ -93,6 +93,11 @@ public class Introducao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public Personagem receberPersonagem(Personagem personagem){
+        System.out.println("atk" + personagem.getAtk());
+        return personagem;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(null, "Saudações senhor. Me chamo Knikell, sou o mensageiro do reino e trouxe uma mensagem do rei para você.", "Knikell:", 1);
         JOptionPane.showMessageDialog(null, "'Saudações bravo jovem, como já deve saber, nosso mundo foi invadido pelo reino negro, aquelas criaturas nojentas grrr!'", "Knikell:", 1);

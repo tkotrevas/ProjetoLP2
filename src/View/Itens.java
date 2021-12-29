@@ -1,10 +1,10 @@
 
 package View;
+import Classes.Personagem;
 import View.Inicio;
 
 public class Itens extends javax.swing.JFrame {
-    
-    String x = p.getTipo();
+
     public Itens() {
         initComponents();
     }
@@ -128,6 +128,11 @@ public class Itens extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public Personagem receberPersonagem(Personagem personagem){
+        System.out.println("def" + personagem.getDef());
+        return personagem;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -138,7 +143,6 @@ public class Itens extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        p.setVida(p.getVida()+10);
         new Introducao().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
