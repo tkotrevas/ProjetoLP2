@@ -8,12 +8,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Introducao extends javax.swing.JFrame {
+Batalha batalha = new Batalha();
+Personagem personagem = new Personagem();
+int teste;
 
-   
     public Introducao() {
         initComponents();
          txtMensageiro.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("../Imagens/mensageiro.png")).getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH)));
-         
+         System.out.println("Atk >>" + personagem.getAtk());
+         System.out.println("Teste: " + teste);
     }
   
 
@@ -93,7 +96,11 @@ public class Introducao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public Personagem receberPersonagem(Personagem personagem){
+    
+    
+    public Personagem receberPersonagem(Personagem personagem, Introducao introducao){
+        introducao.setVisible(true);
+        this.personagem = personagem;
         System.out.println("atk" + personagem.getAtk());
         return personagem;
     }
@@ -111,7 +118,11 @@ public class Introducao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        batalha.receberPersonagem(personagem, batalha);
+        System.out.println("Atk" + personagem.getAtk());
+        batalha.defBarVida();
+        batalha.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {

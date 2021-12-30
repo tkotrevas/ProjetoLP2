@@ -5,20 +5,32 @@
  */
 package View;
 
+import Classes.Combate;
 import Classes.DefinicoesDeImagem;
+import Classes.Inimigo;
+import Classes.Personagem;
+import Classes.Round;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.JLabel;
 
 /**
  *
  * @author William
  */
 public class Batalha extends javax.swing.JFrame {
-
+Personagem personagem = new Personagem();
+Inimigo inimigo = new Inimigo();
+Combate combate = new Combate();
+Round round = new Round();
+Vitoria vitoria = new Vitoria();
     /**
      * Creates new form Batalha
      */
     public Batalha() {
         initComponents();
         definirTodasImagens();
+        defNumRound();
     }
 
     /**
@@ -40,20 +52,37 @@ public class Batalha extends javax.swing.JFrame {
         btnEspecial = new javax.swing.JButton();
         Dialogue = new javax.swing.JLabel();
         Round = new javax.swing.JLabel();
+        numRound = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Personagem.setText("jLabel1");
+        getContentPane().add(Personagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 124, 159));
 
         Inimigo.setText("jLabel1");
+        getContentPane().add(Inimigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 110, 159));
 
-        VS.setText("jLabel1");
+        VS.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        VS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        VS.setText("VS");
+        getContentPane().add(VS, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 51, 47));
 
-        barVidaPersonagem.setValue(100);
+        barVidaPersonagem.setForeground(new java.awt.Color(255, 51, 51));
+        getContentPane().add(barVidaPersonagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 103, -1));
 
-        barVidaInimigo.setValue(95);
+        barVidaInimigo.setForeground(new java.awt.Color(255, 51, 51));
+        getContentPane().add(barVidaInimigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 100, -1));
 
         btnAtaque.setText("Ataque");
+        btnAtaque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtaqueActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAtaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 80, -1));
 
         btnDefesa.setText("Defesa");
         btnDefesa.addActionListener(new java.awt.event.ActionListener() {
@@ -61,93 +90,123 @@ public class Batalha extends javax.swing.JFrame {
                 btnDefesaActionPerformed(evt);
             }
         });
+        getContentPane().add(btnDefesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, -1));
 
-        btnEspecial.setText("jButton3");
+        btnEspecial.setText("Especial");
+        btnEspecial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEspecialActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEspecial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, -1));
 
-        Dialogue.setBackground(new java.awt.Color(204, 255, 204));
-        Dialogue.setText("jLabel1");
+        Dialogue.setBackground(new java.awt.Color(204, 204, 204));
+        Dialogue.setForeground(new java.awt.Color(0, 0, 0));
+        Dialogue.setLabelFor(Dialogue);
+        Dialogue.setText(" Você acerta o {inimigo.nome} causando {inimigo.vida Antiga - inimigo.Vida }  de dano");
         Dialogue.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(Dialogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 272, 470, 113));
 
         Round.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Round.setText("Round");
         Round.setToolTipText("");
+        getContentPane().add(Round, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 24, 50, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Dialogue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAtaque)
-                                    .addComponent(btnDefesa))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(barVidaPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(130, 130, 130)
-                                        .addComponent(Round, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Personagem, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(16, 16, 16)
-                                        .addComponent(VS, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(43, 43, 43))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnEspecial)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(barVidaInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Inimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(33, 33, 33))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Inimigo, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnAtaque)
-                                .addGap(79, 79, 79)
-                                .addComponent(btnEspecial))
-                            .addComponent(Personagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(Round, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(127, 127, 127)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDefesa)
-                            .addComponent(VS, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(barVidaPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barVidaInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(Dialogue, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+        numRound.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        numRound.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        numRound.setText("0");
+        getContentPane().add(numRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 50, 20));
+
+        Background.setBackground(new java.awt.Color(255, 255, 255));
+        Background.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDefesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefesaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDefesaActionPerformed
+    public Personagem receberPersonagem(Personagem personagem, Batalha batalha){
+        batalha.setVisible(true);
+        this.personagem = personagem;
+        System.out.println("Atk: " + personagem.getAtk());
+        return personagem;
+    }
 
+    public Inimigo receberInimigo(Inimigo inimigo){
+        this.inimigo = inimigo;
+        return inimigo;
+    }
+    
     private void definirTodasImagens(){
         DefinicoesDeImagem defImg = new DefinicoesDeImagem();
         
         String caminho = "C:\\Users\\William\\Desktop\\IFSP\\2 Semestre\\LP2 - Linguagem de Programação 2\\Programas em Java\\ProjetoLP2\\src\\Imagens\\espadachim.jpg";
         defImg.escalonarImagem(caminho, Personagem);
         
+        caminho = "C:\\Users\\William\\Desktop\\IFSP\\2 Semestre\\LP2 - Linguagem de Programação 2\\Programas em Java\\ProjetoLP2\\src\\Imagens\\Gnomo.png";
+        defImg.escalonarImagem(caminho, Inimigo);
+        
+        //caminho = "C:\\Users\\William\\Desktop\\IFSP\\2 Semestre\\LP2 - Linguagem de Programação 2\\Programas em Java\\ProjetoLP2\\src\\Imagens\\arenaOriginal.jpg";
+        //defImg.escalonarImagem(caminho, Background);
     }
+    public void defBarVida(){
+        int vidaPersonagem = (int)(personagem.getVida());
+        System.out.println("Vida personagem" + vidaPersonagem);
+        int vidaInimigo = (int)(inimigo.getVida());
+        barVidaPersonagem.setMaximum(vidaPersonagem);
+        barVidaInimigo.setMaximum(vidaInimigo);
+    }
+    
+    public void updateBarVida(int vidaPers, int vidaIni){
+        barVidaPersonagem.setValue(vidaPers);
+        barVidaInimigo.setValue(vidaIni);
+    }
+    
+    public void defNumRound(){
+        Round round = new Round();
+        numRound.setText(round.getsRound());
+    }
+    
+    public void morte(Personagem personagem, Inimigo inimigo){
+        if(personagem.getVida()<= 0){
+            Personagem.setVisible(false);
+        }
+        if(inimigo.getVida()<= 0){
+            Inimigo.setVisible(false);
+        }
+    }
+    
+    private void btnDefesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefesaActionPerformed
+       
+        combate.lutaDef(personagem, inimigo);
+        System.out.println("Personagem Vida: " + personagem.getVida());
+        System.out.println("Inimigo Vida:" + inimigo.getVida());
+        updateBarVida((int)(personagem.getVida()), (int)(inimigo.getVida()));
+        round.setRound(round.getRound()+1);
+        morte(personagem, inimigo);
+        
+    }//GEN-LAST:event_btnDefesaActionPerformed
+
+    private void btnAtaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtaqueActionPerformed
+        
+        combate.lutaAtk(personagem, inimigo);
+        System.out.println("Personagem Vida: " + personagem.getVida());
+        System.out.println("Inimigo Vida:" + inimigo.getVida());
+        updateBarVida((int)(personagem.getVida()), (int)(inimigo.getVida()));
+        round.setRound(round.getRound()+1);
+        morte(personagem, inimigo);
+    }//GEN-LAST:event_btnAtaqueActionPerformed
+
+    private void btnEspecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEspecialActionPerformed
+       
+        combate.lutaEspecial(personagem, inimigo);
+        System.out.println("Personagem Vida: " + personagem.getVida());
+        System.out.println("Inimigo Vida:" + inimigo.getVida());
+        updateBarVida((int)(personagem.getVida()), (int)(inimigo.getVida()));
+        round.setRound(round.getRound()+1);
+        morte(personagem, inimigo);
+    }//GEN-LAST:event_btnEspecialActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -184,6 +243,7 @@ public class Batalha extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Background;
     private javax.swing.JLabel Dialogue;
     private javax.swing.JLabel Inimigo;
     private javax.swing.JLabel Personagem;
@@ -194,5 +254,6 @@ public class Batalha extends javax.swing.JFrame {
     private javax.swing.JButton btnAtaque;
     private javax.swing.JButton btnDefesa;
     private javax.swing.JButton btnEspecial;
+    private javax.swing.JLabel numRound;
     // End of variables declaration//GEN-END:variables
 }

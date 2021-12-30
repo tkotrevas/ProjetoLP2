@@ -15,6 +15,8 @@ public class Personagem {
         this.def = def;
         this.vida = vida;
     }
+    public Personagem(){
+    }
 
     public Item getItem() {
         return item;
