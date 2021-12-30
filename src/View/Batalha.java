@@ -24,6 +24,7 @@ Inimigo inimigo = new Inimigo();
 Combate combate = new Combate();
 Round round = new Round();
 Vitoria vitoria = new Vitoria();
+Derrota derrota = new Derrota();
     /**
      * Creates new form Batalha
      */
@@ -169,9 +170,13 @@ Vitoria vitoria = new Vitoria();
     public void morte(Personagem personagem, Inimigo inimigo){
         if(personagem.getVida()<= 0){
             Personagem.setVisible(false);
+            derrota.setVisible(true);
+            dispose();
         }
         if(inimigo.getVida()<= 0){
             Inimigo.setVisible(false);
+            dispose();
+            vitoria.receberPersonagem(personagem, vitoria);
         }
     }
     

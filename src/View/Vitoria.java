@@ -13,7 +13,6 @@ import Classes.Personagem;
  * @author William
  */
 public class Vitoria extends javax.swing.JFrame {
-Batalha batalha = new Batalha();
 Personagem personagem = new Personagem();
     /**
      * Creates new form Vitoria
@@ -34,8 +33,8 @@ Personagem personagem = new Personagem();
         defImg.escalonarImagem(caminho, Personagem);
     }
     
-    public Personagem receberPersonagem(Personagem personagem, Introducao introducao){
-        introducao.setVisible(true);
+    public Personagem receberPersonagem(Personagem personagem, Vitoria vitoria){
+        vitoria.setVisible(true);
         this.personagem = personagem;
         System.out.println("atk" + personagem.getAtk());
         return personagem;
@@ -106,6 +105,7 @@ Personagem personagem = new Personagem();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Batalha batalha = new Batalha();
         batalha.receberPersonagem(personagem, batalha);
         System.out.println("Atk" + personagem.getAtk());
         batalha.defBarVida();
