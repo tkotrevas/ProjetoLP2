@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Inicio extends javax.swing.JFrame {
-Personagem p = new Personagem("null",null,0,0,0);
+Personagem p = new Personagem();
 Introducao i = new Introducao();
 
 
@@ -129,9 +129,9 @@ public Object retornap (){
         p.setRaca("Arqueiro");
         p.setAtk(8);
         p.setDef(2);
-        p.setVida(10);
-        i.receberPersonagem(p);
-        new Introducao().setVisible(true);
+        p.setVida(100);
+        i.receberPersonagem(p,i);
+        
         dispose();
     }//GEN-LAST:event_btnArqueiroActionPerformed
 
@@ -139,19 +139,19 @@ public Object retornap (){
         p.setRaca("Espadachim");
         p.setAtk(7);
         p.setDef(6);
-        p.setVida(10);
-        i.receberPersonagem(p);
-        new Introducao().setVisible(true);
+        p.setVida(100);
+        i.receberPersonagem(p,i);
+        
         dispose();
     }//GEN-LAST:event_btnEspadachimActionPerformed
 
     private void btnMagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMagoActionPerformed
+        
         p.setRaca("Mago");
         p.setAtk(8);
         p.setDef(5);
-        p.setVida(10);
-        i.receberPersonagem(p);
-        new Introducao().setVisible(true);
+        p.setVida(100);
+        i.receberPersonagem(p,i);
         dispose();
     }//GEN-LAST:event_btnMagoActionPerformed
 
