@@ -10,10 +10,11 @@ import Classes.DefinicoesDeImagem;
 import Classes.Inimigo;
 import Classes.Personagem;
 import Classes.Round;
+import static java.lang.Math.random;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JLabel;
-
+import java.util.Random;
 /**
  *
  * @author William
@@ -28,10 +29,15 @@ Derrota derrota = new Derrota();
     /**
      * Creates new form Batalha
      */
+
+
+
     public Batalha() {
         initComponents();
         definirTodasImagens();
         defNumRound();
+        
+       
     }
 
     /**
@@ -139,12 +145,59 @@ Derrota derrota = new Derrota();
     
     private void definirTodasImagens(){
         DefinicoesDeImagem defImg = new DefinicoesDeImagem();
+        String[] monstros1 = new String[13];
+        String[] monstros2 = new String[14];
+        String[] monstros3 = new String[10];
+        String[][] todosMonstros = new  String[3][14];
+
+        //MONSTROS NIVEL 1
+         todosMonstros[0][0] = "C:\\RPGame\\src\\Imagens\\Gnomo.png";
+         todosMonstros[0][1] = "C:\\RPGame\\src\\Imagens\\Gnomo2.png";
+         todosMonstros[0][2] = "C:\\RPGame\\src\\Imagens\\Gnomo4.png";
+         todosMonstros[0][3] = "C:\\RPGame\\src\\Imagens\\Gnomo3.png";
+         todosMonstros[0][4] = "C:\\RPGame\\src\\Imagens\\Gnomo5.png";
+         todosMonstros[0][5] = "C:\\RPGame\\src\\Imagens\\Celestial1.png";
+         todosMonstros[0][6] = "C:\\RPGame\\src\\Imagens\\Celestial2.png";
+         todosMonstros[0][7] = "C:\\RPGame\\src\\Imagens\\Celestial3.png";
+         todosMonstros[0][8] = "C:\\RPGame\\src\\Imagens\\Bruxo1.png";
+         todosMonstros[0][9] = "C:\\RPGame\\src\\Imagens\\Bruxo2.png";
+         todosMonstros[0][10] = "C:\\RPGame\\src\\Imagens\\Bruxo3.png";
+         todosMonstros[0][11] = "C:\\RPGame\\src\\Imagens\\Bruxa4.png";
+          
+         //MONSTROS NIVEL 2
+         todosMonstros[1][0] = "C:\\RPGame\\src\\Imagens\\Centauro1.png";
+         todosMonstros[1][1] = "C:\\RPGame\\src\\Imagens\\Centauro3.png";
+         todosMonstros[1][2] = "C:\\RPGame\\src\\Imagens\\Centauro2.png";
+         todosMonstros[1][3] = "C:\\RPGame\\src\\Imagens\\Centauro4.png";
+         todosMonstros[1][4] = "C:\\RPGame\\src\\Imagens\\Cerbero.png";
+         todosMonstros[1][5] = "C:\\RPGame\\src\\Imagens\\Cerbero.png";
+         todosMonstros[1][6] = "C:\\RPGame\\src\\Imagens\\Cerbero2.png";
+         todosMonstros[1][7] = "C:\\RPGame\\src\\Imagens\\Cerbero3.png";
+         todosMonstros[1][8] = "C:\\RPGame\\src\\Imagens\\Cerbero4.png";
+         todosMonstros[1][9] = "C:\\RPGame\\src\\Imagens\\Elemental1.png";
+         todosMonstros[1][10] = "C:\\RPGame\\src\\Imagens\\Elemental2.png";
+         todosMonstros[1][11] = "C:\\RPGame\\src\\Imagens\\Elemental3.png";
+         todosMonstros[1][12] = "C:\\RPGame\\src\\Imagens\\Elemental4.png";
+         todosMonstros[1][13] = "C:\\RPGame\\src\\Imagens\\Elemental5.png";
+         
+           //MONSTROS NIVEL 3
+         todosMonstros[2][0]= "C:\\RPGame\\src\\Imagens\\Elfo1.png";
+         todosMonstros[2][1]="C:\\RPGame\\src\\Imagens\\Elfo2.png";
+         todosMonstros[2][2]="C:\\RPGame\\src\\Imagens\\Elfo3.png";
+         todosMonstros[2][3]="C:\\RPGame\\src\\Imagens\\Elfo4.png";
+         todosMonstros[2][4]="C:\\RPGame\\src\\Imagens\\Grifo1.png";
+         todosMonstros[2][5]="C:\\RPGame\\src\\Imagens\\Grifo2.png";
+         todosMonstros[2][6]="C:\\RPGame\\src\\Imagens\\Grifo3.png";
+         todosMonstros[2][7]="C:\\RPGame\\src\\Imagens\\Orc1.png";
+         todosMonstros[2][8]="C:\\RPGame\\src\\Imagens\\Orc2.png";
+         todosMonstros[2][9]="C:\\RPGame\\src\\Imagens\\Orc3.png";
         
         String caminho = "C:\\RPGame\\src\\Imagens\\espadachim.jpg";
         defImg.escalonarImagem(caminho, Personagem);
         
-        caminho = "C:\\RPGame\\src\\Imagens\\Gnomo.png";
-        defImg.escalonarImagem(caminho, Inimigo);
+     //   caminho = "C:\\RPGame\\src\\Imagens\\Gnomo.png";
+       Random num = new Random();
+        defImg.escalonarImagem(todosMonstros[0][num.nextInt(12)], Inimigo);
         
         //caminho = "C:\\Users\\William\\Desktop\\IFSP\\2 Semestre\\LP2 - Linguagem de Programação 2\\Programas em Java\\ProjetoLP2\\src\\Imagens\\arenaOriginal.jpg";
         //defImg.escalonarImagem(caminho, Background);
