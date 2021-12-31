@@ -10,13 +10,10 @@ import javax.swing.JOptionPane;
 public class Introducao extends javax.swing.JFrame {
 Batalha batalha = new Batalha();
 Personagem personagem = new Personagem();
-int teste;
 
     public Introducao() {
         initComponents();
          txtMensageiro.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("../Imagens/mensageiro.png")).getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH)));
-         System.out.println("Atk >>" + personagem.getAtk());
-         System.out.println("Teste: " + teste);
     }
   
 
@@ -119,6 +116,7 @@ int teste;
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         batalha.receberPersonagem(personagem, batalha);
+        batalha.definirTodasImagens(personagem);
         System.out.println("Atk" + personagem.getAtk());
         batalha.defBarVida();
         batalha.setVisible(true);

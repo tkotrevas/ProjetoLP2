@@ -130,6 +130,8 @@ public Object retornap (){
         p.setAtk(8);
         p.setDef(2);
         p.setVida(100);
+        p.setBatalha(1);
+        p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\arqueiro.jpg");
         i.receberPersonagem(p,i);
         
         dispose();
@@ -140,6 +142,8 @@ public Object retornap (){
         p.setAtk(7);
         p.setDef(6);
         p.setVida(100);
+        p.setBatalha(1);
+        p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\espadachim.jpg");
         i.receberPersonagem(p,i);
         
         dispose();
@@ -151,6 +155,8 @@ public Object retornap (){
         p.setAtk(8);
         p.setDef(5);
         p.setVida(100);
+        p.setBatalha(1);
+        p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\mago].jpg");
         i.receberPersonagem(p,i);
         dispose();
     }//GEN-LAST:event_btnMagoActionPerformed

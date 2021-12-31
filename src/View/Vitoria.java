@@ -26,7 +26,7 @@ Personagem personagem = new Personagem();
         DefinicoesDeImagem defImg = new DefinicoesDeImagem();
         String caminho;
         
-        caminho = "C:\\RPGame\\src\\Imagens\\Vitoria.jpg";
+        caminho = "C:\\RPGame\\src\\Imagens\\Vitoria.png";
         defImg.escalonarImagem(caminho, Vitoria);
         
         caminho = "C:\\RPGame\\src\\Imagens\\espadachim.jpg";
@@ -36,7 +36,6 @@ Personagem personagem = new Personagem();
     public Personagem receberPersonagem(Personagem personagem, Vitoria vitoria){
         vitoria.setVisible(true);
         this.personagem = personagem;
-        System.out.println("atk" + personagem.getAtk());
         return personagem;
     }
     /**
@@ -107,7 +106,7 @@ Personagem personagem = new Personagem();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Batalha batalha = new Batalha();
         batalha.receberPersonagem(personagem, batalha);
-        System.out.println("Atk" + personagem.getAtk());
+        batalha.definirTodasImagens(personagem);
         batalha.defBarVida();
         batalha.setVisible(true);
         dispose();

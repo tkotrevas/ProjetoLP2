@@ -15,15 +15,6 @@ public class Round {
     
     public Round() {
         this.round = 1;
-        this.sRound = (Integer.toString(round));
-    }
-    
-    public String getsRound() {
-        return sRound;
-    }
-
-    public void setsRound(String sRound) {
-        this.sRound = sRound;
     }
     
     public int getRound() {

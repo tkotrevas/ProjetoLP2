@@ -10,7 +10,7 @@ public class Itens extends javax.swing.JFrame {
     public Itens() {
         initComponents();
     }
-    public Personagem personagem = new Personagem("null", null, 0,0,0);
+    public Personagem personagem = new Personagem();
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

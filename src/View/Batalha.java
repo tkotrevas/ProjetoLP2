@@ -10,6 +10,7 @@ import Classes.DefinicoesDeImagem;
 import Classes.Inimigo;
 import Classes.Personagem;
 import Classes.Round;
+import java.awt.Color;
 import static java.lang.Math.random;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,6 +27,7 @@ Combate combate = new Combate();
 Round round = new Round();
 Vitoria vitoria = new Vitoria();
 Derrota derrota = new Derrota();
+int roundEspecial;
     /**
      * Creates new form Batalha
      */
@@ -34,9 +36,9 @@ Derrota derrota = new Derrota();
 
     public Batalha() {
         initComponents();
-        definirTodasImagens();
         defNumRound();
-        
+        definirTodasImagens(personagem);
+        corBotao();
        
     }
 
@@ -78,10 +80,10 @@ Derrota derrota = new Derrota();
         getContentPane().add(VS, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 51, 47));
 
         barVidaPersonagem.setForeground(new java.awt.Color(255, 51, 51));
-        getContentPane().add(barVidaPersonagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 103, -1));
+        getContentPane().add(barVidaPersonagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 103, -1));
 
         barVidaInimigo.setForeground(new java.awt.Color(255, 51, 51));
-        getContentPane().add(barVidaInimigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 100, -1));
+        getContentPane().add(barVidaInimigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 100, -1));
 
         btnAtaque.setText("Ataque");
         btnAtaque.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +110,6 @@ Derrota derrota = new Derrota();
         getContentPane().add(btnEspecial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, -1));
 
         Dialogue.setBackground(new java.awt.Color(204, 204, 204));
-        Dialogue.setForeground(new java.awt.Color(0, 0, 0));
         Dialogue.setLabelFor(Dialogue);
         Dialogue.setText(" Você acerta o {inimigo.nome} causando {inimigo.vida Antiga - inimigo.Vida }  de dano");
         Dialogue.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -134,7 +135,6 @@ Derrota derrota = new Derrota();
     public Personagem receberPersonagem(Personagem personagem, Batalha batalha){
         batalha.setVisible(true);
         this.personagem = personagem;
-        System.out.println("Atk: " + personagem.getAtk());
         return personagem;
     }
 
@@ -143,13 +143,31 @@ Derrota derrota = new Derrota();
         return inimigo;
     }
     
-    private void definirTodasImagens(){
+    public void definirTodasImagens(Personagem personagem){
         DefinicoesDeImagem defImg = new DefinicoesDeImagem();
+        Random num = new Random();
+        int lvlMonstro, caminhoMonstro;
         String[] monstros1 = new String[13];
         String[] monstros2 = new String[14];
         String[] monstros3 = new String[10];
         String[][] todosMonstros = new  String[3][14];
-
+        
+        personagem.setBatalha(personagem.getBatalha() + 1);
+        System.out.println("Num Batalha: " + personagem.getBatalha());
+        
+        if(personagem.getBatalha() <= 2){
+            lvlMonstro = 0;
+            caminhoMonstro = num.nextInt(11);
+        }
+        else if(personagem.getBatalha() <= 4){
+            lvlMonstro = 1;
+            caminhoMonstro = num.nextInt(13);
+        }
+        else{
+            lvlMonstro = 2;
+            caminhoMonstro = num.nextInt(9);
+        }
+        
         //MONSTROS NIVEL 1
          todosMonstros[0][0] = "C:\\RPGame\\src\\Imagens\\Gnomo.png";
          todosMonstros[0][1] = "C:\\RPGame\\src\\Imagens\\Gnomo2.png";
@@ -192,12 +210,14 @@ Derrota derrota = new Derrota();
          todosMonstros[2][8]="C:\\RPGame\\src\\Imagens\\Orc2.png";
          todosMonstros[2][9]="C:\\RPGame\\src\\Imagens\\Orc3.png";
         
-        String caminho = "C:\\RPGame\\src\\Imagens\\espadachim.jpg";
-        defImg.escalonarImagem(caminho, Personagem);
+        System.out.println("Caminho Personagem: " + personagem.getCaminhoImg());
+        defImg.escalonarImagem(personagem.getCaminhoImg(), Personagem);
         
-     //   caminho = "C:\\RPGame\\src\\Imagens\\Gnomo.png";
-       Random num = new Random();
-        defImg.escalonarImagem(todosMonstros[0][num.nextInt(12)], Inimigo);
+       
+        defImg.escalonarImagem(todosMonstros[lvlMonstro][caminhoMonstro], Inimigo);
+        System.out.println("lvlMonstro " + lvlMonstro + " Caminho monstro " + caminhoMonstro);
+        System.out.println("Caminho" + todosMonstros[lvlMonstro][caminhoMonstro]);
+        System.out.println("Num Batalha: " + personagem.getBatalha());
         
         //caminho = "C:\\Users\\William\\Desktop\\IFSP\\2 Semestre\\LP2 - Linguagem de Programação 2\\Programas em Java\\ProjetoLP2\\src\\Imagens\\arenaOriginal.jpg";
         //defImg.escalonarImagem(caminho, Background);
@@ -216,8 +236,16 @@ Derrota derrota = new Derrota();
     }
     
     public void defNumRound(){
-        Round round = new Round();
-        numRound.setText(round.getsRound());
+        String txtRound;
+        txtRound = Integer.toHexString(round.getRound());
+        numRound.setText(txtRound);
+    }
+    
+    public void updateNumRound(){
+        String txtRound;
+        round.setRound(round.getRound());
+        txtRound = Integer.toHexString(round.getRound());
+        numRound.setText(txtRound);
     }
     
     public void morte(Personagem personagem, Inimigo inimigo){
@@ -233,35 +261,45 @@ Derrota derrota = new Derrota();
         }
     }
     
+    public void corBotao(){
+        if(round.getRound() - roundEspecial <= 3){
+            btnEspecial.setBackground(Color.GRAY);
+        }
+        else{
+            btnEspecial.setBackground(Color.WHITE);
+        }
+    }
+    
     private void btnDefesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefesaActionPerformed
        
         combate.lutaDef(personagem, inimigo);
-        System.out.println("Personagem Vida: " + personagem.getVida());
-        System.out.println("Inimigo Vida:" + inimigo.getVida());
         updateBarVida((int)(personagem.getVida()), (int)(inimigo.getVida()));
         round.setRound(round.getRound()+1);
         morte(personagem, inimigo);
+        updateNumRound();
         
     }//GEN-LAST:event_btnDefesaActionPerformed
 
     private void btnAtaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtaqueActionPerformed
         
         combate.lutaAtk(personagem, inimigo);
-        System.out.println("Personagem Vida: " + personagem.getVida());
-        System.out.println("Inimigo Vida:" + inimigo.getVida());
         updateBarVida((int)(personagem.getVida()), (int)(inimigo.getVida()));
         round.setRound(round.getRound()+1);
         morte(personagem, inimigo);
+        corBotao();
+        updateNumRound();
     }//GEN-LAST:event_btnAtaqueActionPerformed
 
     private void btnEspecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEspecialActionPerformed
-       
-        combate.lutaEspecial(personagem, inimigo);
-        System.out.println("Personagem Vida: " + personagem.getVida());
-        System.out.println("Inimigo Vida:" + inimigo.getVida());
-        updateBarVida((int)(personagem.getVida()), (int)(inimigo.getVida()));
-        round.setRound(round.getRound()+1);
-        morte(personagem, inimigo);
+       if(round.getRound() - roundEspecial >= 3){
+            combate.lutaEspecial(personagem, inimigo);
+            updateBarVida((int)(personagem.getVida()), (int)(inimigo.getVida()));
+            round.setRound(round.getRound()+1);
+            morte(personagem, inimigo);
+            roundEspecial = round.getRound();
+            corBotao();
+            updateNumRound();
+       }
     }//GEN-LAST:event_btnEspecialActionPerformed
 
     
