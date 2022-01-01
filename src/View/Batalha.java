@@ -249,14 +249,14 @@ int roundEspecial;
     
     public void defNumRound(){
         String txtRound;
-        txtRound = Integer.toHexString(round.getRound());
+        txtRound = Integer.toString(round.getRound());
         numRound.setText(txtRound);
     }
     
     public void updateNumRound(){
         String txtRound;
         round.setRound(round.getRound());
-        txtRound = Integer.toHexString(round.getRound());
+        txtRound = Integer.toString(round.getRound());
         numRound.setText(txtRound);
     }
     

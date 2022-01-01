@@ -106,6 +106,7 @@ Personagem personagem = new Personagem();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Batalha batalha = new Batalha();
         batalha.receberPersonagem(personagem, batalha);
+        personagem.setVida(personagem.getVidaBase());
         batalha.definirTodasImagens(personagem);
         batalha.defBarVida();
         batalha.setVisible(true);
