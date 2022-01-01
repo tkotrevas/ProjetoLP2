@@ -128,9 +128,10 @@ public Object retornap (){
     private void btnArqueiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArqueiroActionPerformed
         p.setRaca("Arqueiro");
         p.setAtk(8);
-        p.setDef(2);
-        p.setVida(100);
+        p.setDef(5);
+        p.setVida(90);
         p.setBatalha(1);
+        p.setVidaBase(p.getVida());
         p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\arqueiro.jpg");
         i.receberPersonagem(p,i);
         
@@ -139,10 +140,11 @@ public Object retornap (){
 
     private void btnEspadachimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEspadachimActionPerformed
         p.setRaca("Espadachim");
-        p.setAtk(7);
+        p.setAtk(6);
         p.setDef(6);
         p.setVida(100);
         p.setBatalha(1);
+        p.setVidaBase(p.getVida());
         p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\espadachim.jpg");
         i.receberPersonagem(p,i);
         
@@ -152,10 +154,11 @@ public Object retornap (){
     private void btnMagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMagoActionPerformed
         
         p.setRaca("Mago");
-        p.setAtk(8);
-        p.setDef(5);
-        p.setVida(100);
+        p.setAtk(9);
+        p.setDef(4);
+        p.setVida(75);
         p.setBatalha(1);
+        p.setVidaBase(p.getVida());
         p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\mago].jpg");
         i.receberPersonagem(p,i);
         dispose();

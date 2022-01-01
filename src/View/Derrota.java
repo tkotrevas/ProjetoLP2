@@ -17,18 +17,17 @@ public class Derrota extends javax.swing.JFrame {
     /** Creates new form Derrota */
     public Derrota() {
         initComponents();
-        definirTodasImagens();
     }
 
     
-    public void definirTodasImagens(){
+    public void definirTodasImagens(String inimigoImg){
         DefinicoesDeImagem defImg = new DefinicoesDeImagem();
         String caminho;
         
         caminho = "C:\\RPGame\\src\\Imagens\\Derrota.png";
         defImg.escalonarImagem(caminho, Derrota);
         
-        caminho = "C:\\RPGame\\src\\Imagens\\Gnomo.png";
+        caminho = inimigoImg;
         defImg.escalonarImagem(caminho, Inimigo);
     }
     /** This method is called from within the constructor to
@@ -63,11 +62,11 @@ public class Derrota extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(Derrota, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(Inimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(184, 184, 184)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(Inimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

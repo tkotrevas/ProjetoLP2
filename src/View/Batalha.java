@@ -147,6 +147,7 @@ int roundEspecial;
         DefinicoesDeImagem defImg = new DefinicoesDeImagem();
         Random num = new Random();
         int lvlMonstro, caminhoMonstro;
+        float monsterVariation;
         String[] monstros1 = new String[13];
         String[] monstros2 = new String[14];
         String[] monstros3 = new String[10];
@@ -157,16 +158,25 @@ int roundEspecial;
         
         if(personagem.getBatalha() <= 2){
             lvlMonstro = 0;
+            monsterVariation = num.nextFloat()*2;
             caminhoMonstro = num.nextInt(11);
+            
         }
         else if(personagem.getBatalha() <= 4){
             lvlMonstro = 1;
+            monsterVariation = num.nextFloat()*3;
             caminhoMonstro = num.nextInt(13);
         }
         else{
             lvlMonstro = 2;
+            monsterVariation = num.nextFloat()*4;
             caminhoMonstro = num.nextInt(9);
         }
+        //Setando poder aleatório
+        inimigo.setAtk(inimigo.getAtk() + monsterVariation);
+        inimigo.setDef(inimigo.getDef() + monsterVariation);
+        inimigo.setVida(inimigo.getVida() + monsterVariation);
+        
         
         //MONSTROS NIVEL 1
          todosMonstros[0][0] = "C:\\RPGame\\src\\Imagens\\Gnomo.png";
@@ -210,6 +220,8 @@ int roundEspecial;
          todosMonstros[2][8]="C:\\RPGame\\src\\Imagens\\Orc2.png";
          todosMonstros[2][9]="C:\\RPGame\\src\\Imagens\\Orc3.png";
         
+         derrota.definirTodasImagens(todosMonstros[lvlMonstro][caminhoMonstro]);
+         
         System.out.println("Caminho Personagem: " + personagem.getCaminhoImg());
         defImg.escalonarImagem(personagem.getCaminhoImg(), Personagem);
         
@@ -254,7 +266,7 @@ int roundEspecial;
             derrota.setVisible(true);
             dispose();
         }
-        if(inimigo.getVida()<= 0){
+        else if(inimigo.getVida()<= 0){
             Inimigo.setVisible(false);
             dispose();
             vitoria.receberPersonagem(personagem, vitoria);
@@ -276,6 +288,7 @@ int roundEspecial;
         updateBarVida((int)(personagem.getVida()), (int)(inimigo.getVida()));
         round.setRound(round.getRound()+1);
         morte(personagem, inimigo);
+        corBotao();
         updateNumRound();
         
     }//GEN-LAST:event_btnDefesaActionPerformed

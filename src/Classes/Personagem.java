@@ -8,6 +8,7 @@ public class Personagem {
     float atk;
     float def;
     float vida;
+    float vidaBase;
     int batalha;
     String caminhoImg;
 
@@ -23,6 +24,14 @@ public class Personagem {
     public Personagem(){
     }
 
+    public float getVidaBase() {
+        return vidaBase;
+    }
+
+    public void setVidaBase(float vidaBase) {
+        this.vidaBase = vidaBase;
+    }
+    
     public int getBatalha() {
         return batalha;
     }
