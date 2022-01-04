@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Introducao extends javax.swing.JFrame {
-Batalha batalha = new Batalha();
+
 Personagem personagem = new Personagem();
 
     public Introducao() {
@@ -104,17 +104,16 @@ Personagem personagem = new Personagem();
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(null, "Saudações senhor. Me chamo Knikell, sou o mensageiro do reino e trouxe uma mensagem do rei para você.", "Knikell:", 1);
-        JOptionPane.showMessageDialog(null, "'Saudações bravo jovem, como já deve saber, nosso mundo foi invadido pelo reino negro, aquelas criaturas nojentas grrr!'", "Knikell:", 1);
-        JOptionPane.showMessageDialog(null, "'Após alguns dias de guerra sangrenta, eles conseguiram levar o Hidromel da juventude, que permite rejuvenescer 10 anos por cada 10ml ingerida.'", "Knikell:", 1);
-        JOptionPane.showMessageDialog(null, "'Precisamos recuperar essa bebida, pois nas mãos do Dominador de mundos, será uma arma que o tornará invencível.'", "Knikell:", 1);
-        JOptionPane.showMessageDialog(null, "'Acredito no seu potencial e é esse o motivo de lhe convocar para essa missão, que se concluida com sucesso, salvará nosso mundo e garantirá nossa soberania sobre as criaturas.'", "Knikell:", 1);
-        JOptionPane.showMessageDialog(null, "'Pedi para o mensageiro levar alguns itens para que pudesse escolher e levar contigo, talvez te ajude nessa missão, escolha sabiamente.'", "Knikell:", 1);
+        JOptionPane.showMessageDialog(null, "'Saudações bravo jovem, como já deve saber, a chama foi roubada e exposta como prêmio em Melem.'", "Knikell:", 1);
+        JOptionPane.showMessageDialog(null, "'Precisamos recuperar a chama, pois nas mãos erradas, será o fim dos tempos.'", "Knikell:", 1);
+        JOptionPane.showMessageDialog(null, "'Acredito no seu potencial e é esse o motivo de meu contato, vença o torneio e salve nosso mundo, garantindo nossa soberania sobre as criaturas.'", "Knikell:", 1);
         JOptionPane.showMessageDialog(null, "'Contamos com você, boa sorte!'", "Knikell:", 1);
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       Batalha batalha = new Batalha();
         batalha.receberPersonagem(personagem, batalha);
         batalha.definirTodasImagens(personagem);
         System.out.println("Atk" + personagem.getAtk());

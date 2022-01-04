@@ -27,6 +27,8 @@ Combate combate = new Combate();
 Round round = new Round();
 Vitoria vitoria = new Vitoria();
 Derrota derrota = new Derrota();
+Upgrade upgrade = new Upgrade();
+Itens itens = new Itens();
 int roundEspecial;
     /**
      * Creates new form Batalha
@@ -39,6 +41,10 @@ int roundEspecial;
         defNumRound();
         definirTodasImagens(personagem);
         corBotao();
+        setCombate();
+        System.out.println("Combate : " + combate.getNum());
+       
+        
        
     }
 
@@ -137,6 +143,11 @@ int roundEspecial;
         this.personagem = personagem;
         return personagem;
     }
+    
+    public void setCombate(){ 
+        int t = combate.getNum();
+       combate.setNum(t++);
+    }
 
     public Inimigo receberInimigo(Inimigo inimigo){
         this.inimigo = inimigo;
@@ -153,8 +164,7 @@ int roundEspecial;
         String[] monstros3 = new String[10];
         String[][] todosMonstros = new  String[3][14];
         
-        personagem.setBatalha(personagem.getBatalha() + 1);
-        System.out.println("Num Batalha: " + personagem.getBatalha());
+       
         
         if(personagem.getBatalha() <= 2){
             lvlMonstro = 0;
@@ -225,11 +235,10 @@ int roundEspecial;
         System.out.println("Caminho Personagem: " + personagem.getCaminhoImg());
         defImg.escalonarImagem(personagem.getCaminhoImg(), Personagem);
         
-       
         defImg.escalonarImagem(todosMonstros[lvlMonstro][caminhoMonstro], Inimigo);
         System.out.println("lvlMonstro " + lvlMonstro + " Caminho monstro " + caminhoMonstro);
         System.out.println("Caminho" + todosMonstros[lvlMonstro][caminhoMonstro]);
-        System.out.println("Num Batalha: " + personagem.getBatalha());
+
         
         //caminho = "C:\\Users\\William\\Desktop\\IFSP\\2 Semestre\\LP2 - Linguagem de Programação 2\\Programas em Java\\ProjetoLP2\\src\\Imagens\\arenaOriginal.jpg";
         //defImg.escalonarImagem(caminho, Background);
@@ -261,7 +270,13 @@ int roundEspecial;
     }
     
     public void morte(Personagem personagem, Inimigo inimigo){
-        if(personagem.getVida()<= 0){
+        
+         if(combate.getNum()==2){
+            Personagem.setVisible(false);
+            itens.setVisible(true);
+            dispose();
+        }
+         else if(personagem.getVida()<= 0){
             Personagem.setVisible(false);
             derrota.setVisible(true);
             dispose();
@@ -270,8 +285,12 @@ int roundEspecial;
             Inimigo.setVisible(false);
             dispose();
             vitoria.receberPersonagem(personagem, vitoria);
-        }
+        } 
+        
+        
+        
     }
+        
     
     public void corBotao(){
         if(round.getRound() - roundEspecial <= 3){
@@ -316,9 +335,7 @@ int roundEspecial;
     }//GEN-LAST:event_btnEspecialActionPerformed
 
     
-    /**
-     * @param args the command line arguments
-     */
+  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

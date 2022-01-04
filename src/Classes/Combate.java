@@ -19,6 +19,15 @@ public class Combate {
     float atkInimigo;
     float defPersonagem;
     float defInimigo;
+    int num;
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
 
     public float getAtkPersonagem() {
         return atkPersonagem;

@@ -13,7 +13,7 @@ import Classes.Personagem;
  * @author William
  */
 public class Vitoria extends javax.swing.JFrame {
-Personagem personagem = new Personagem();
+   Personagem personagem = new Personagem();
     /**
      * Creates new form Vitoria
      */
@@ -21,6 +21,7 @@ Personagem personagem = new Personagem();
         initComponents();
         definirTodasImagens();
     }
+    
 
     public void definirTodasImagens(){
         DefinicoesDeImagem defImg = new DefinicoesDeImagem();
@@ -29,8 +30,8 @@ Personagem personagem = new Personagem();
         caminho = "C:\\RPGame\\src\\Imagens\\Vitoria.png";
         defImg.escalonarImagem(caminho, Vitoria);
         
-        caminho = "C:\\RPGame\\src\\Imagens\\espadachim.jpg";
-        defImg.escalonarImagem(caminho, Personagem);
+       System.out.println("Caminho Personagem: " + personagem.getCaminhoImg());
+        defImg.escalonarImagem(personagem.getCaminhoImg(), Personagem);
     }
     
     public Personagem receberPersonagem(Personagem personagem, Vitoria vitoria){
@@ -110,6 +111,7 @@ Personagem personagem = new Personagem();
         batalha.definirTodasImagens(personagem);
         batalha.defBarVida();
         batalha.setVisible(true);
+        batalha.updateNumRound();
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

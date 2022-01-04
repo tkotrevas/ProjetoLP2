@@ -130,7 +130,7 @@ public Object retornap (){
         p.setAtk(8);
         p.setDef(5);
         p.setVida(90);
-        p.setBatalha(1);
+       
         p.setVidaBase(p.getVida());
         p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\arqueiro.jpg");
         i.receberPersonagem(p,i);
@@ -143,7 +143,7 @@ public Object retornap (){
         p.setAtk(6);
         p.setDef(6);
         p.setVida(100);
-        p.setBatalha(1);
+       
         p.setVidaBase(p.getVida());
         p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\espadachim.jpg");
         i.receberPersonagem(p,i);
@@ -157,7 +157,7 @@ public Object retornap (){
         p.setAtk(9);
         p.setDef(4);
         p.setVida(75);
-        p.setBatalha(1);
+        
         p.setVidaBase(p.getVida());
         p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\mago].jpg");
         i.receberPersonagem(p,i);

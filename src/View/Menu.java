@@ -37,7 +37,6 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,9 +66,6 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Galeria");
-        jMenuBar1.add(jMenu3);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -97,7 +93,7 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Terras mais distantes eram afetadas em menor grau pela chama, mas geravam criaturas diferentes dos humanos, algumas menos inteligentes, outras mais ferozes e verdadeiras quimeras \nque se organizavam em grandes centros urbanos como o maior deles Melem. A simples presença da chama poderia elevar um império, através aperfeiçoamento geracional \nque levaria milênios, enquanto outro poderia entrar em decadência.", "HISTÓRIA", 1);
         JOptionPane.showMessageDialog(null, "É em Melem que muitas raças disputam pela supremacia em grandes torneios realizados por elfos (elfos seguem a lei, escrita a mais de mil anos, e são muito temidos pelas outras criaturas,\n são eles que administram a cidade e mantém a sua força com mão de ferro).", "HISTÓRIA", 1);
         JOptionPane.showMessageDialog(null, "Certo dia, os elfos reuniram os melhores dos melhores dos vencedores do torneio e roubaram, sorrateiramente, a chama dos humanos e a expuseram no topo de Melem.", "HISTÓRIA", 1);
-        JOptionPane.showMessageDialog(null, "Você como o melhor o melhor guerreiro do reino deve entrar no torneio e enfrentar os melhores campões, buscando a chama como prêmio, caso contrario, muito sangue será derramado.", "HISTÓRIA", 1);
+        JOptionPane.showMessageDialog(null, "Você como o melhor o melhor guerreiro do reino deve entrar no torneio e enfrentar os melhores campeões, buscando a chama como prêmio, caso contrario, muito sangue será derramado.", "HISTÓRIA", 1);
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -144,7 +140,6 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
