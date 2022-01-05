@@ -19,6 +19,12 @@ Personagem personagem = new Personagem();
         initComponents();
          definirTodasImagens();
     }
+    
+     public Personagem receberPersonagem(Personagem personagem, Upgrade upgrade){
+        upgrade.setVisible(true);
+        this.personagem = personagem;
+        return personagem;
+    }
 
    
     @SuppressWarnings("unchecked")
@@ -122,11 +128,7 @@ Personagem personagem = new Personagem();
         batalha.setVisible(true);
         dispose();        
     }//GEN-LAST:event_AvancarActionPerformed
-public Personagem receberPersonagem(Personagem personagem, Upgrade upgrade){
-        upgrade.setVisible(true);
-        this.personagem = personagem;
-        return personagem;
-    }
+
 public void definirTodasImagens(){
         DefinicoesDeImagem defImg = new DefinicoesDeImagem();
         String caminho;

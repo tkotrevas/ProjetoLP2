@@ -5,25 +5,29 @@
  */
 package View;
 
+import Classes.Combate;
 import Classes.DefinicoesDeImagem;
 import Classes.Personagem;
 
-/**
- *
- * @author William
- */
 public class Vitoria extends javax.swing.JFrame {
    Personagem personagem = new Personagem();
-    /**
-     * Creates new form Vitoria
-     */
+   Upgrade upgrade = new Upgrade();
+   Combate combate = new Combate();
+   
+   int contador;
+   
     public Vitoria() {
         initComponents();
-        definirTodasImagens();
+        
+      // updateCombate();
     }
     
+  /*public void updateCombate(){
+       System.out.println("Batalha: " +personagem.getBatalha());     
+    }*/
+    
 
-    public void definirTodasImagens(){
+    public void definirTodasImagens(Personagem personagem){
         DefinicoesDeImagem defImg = new DefinicoesDeImagem();
         String caminho;
         
@@ -34,10 +38,17 @@ public class Vitoria extends javax.swing.JFrame {
         defImg.escalonarImagem(personagem.getCaminhoImg(), Personagem);
     }
     
+    
     public Personagem receberPersonagem(Personagem personagem, Vitoria vitoria){
         vitoria.setVisible(true);
         this.personagem = personagem;
         return personagem;
+    }
+    
+    public Combate receberCombate(Combate combate){
+        
+        this.combate = combate;
+        return combate;
     }
     /**
      * This method is called from within the constructor to initialize the form.

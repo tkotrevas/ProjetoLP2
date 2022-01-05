@@ -19,7 +19,7 @@ public class Combate {
     float atkInimigo;
     float defPersonagem;
     float defInimigo;
-    int num;
+    int num=1;
 
     public int getNum() {
         return num;

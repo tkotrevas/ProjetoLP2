@@ -8,12 +8,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Introducao extends javax.swing.JFrame {
-
+Batalha batalha = new Batalha();
 Personagem personagem = new Personagem();
 
     public Introducao() {
         initComponents();
          txtMensageiro.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("../Imagens/mensageiro.png")).getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH)));
+        
     }
   
 
@@ -98,6 +99,7 @@ Personagem personagem = new Personagem();
     public Personagem receberPersonagem(Personagem personagem, Introducao introducao){
         introducao.setVisible(true);
         this.personagem = personagem;
+        
         System.out.println("atk" + personagem.getAtk());
         return personagem;
     }
@@ -108,8 +110,6 @@ Personagem personagem = new Personagem();
         JOptionPane.showMessageDialog(null, "'Precisamos recuperar a chama, pois nas mãos erradas, será o fim dos tempos.'", "Knikell:", 1);
         JOptionPane.showMessageDialog(null, "'Acredito no seu potencial e é esse o motivo de meu contato, vença o torneio e salve nosso mundo, garantindo nossa soberania sobre as criaturas.'", "Knikell:", 1);
         JOptionPane.showMessageDialog(null, "'Contamos com você, boa sorte!'", "Knikell:", 1);
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

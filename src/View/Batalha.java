@@ -23,11 +23,10 @@ import java.util.Random;
 public class Batalha extends javax.swing.JFrame {
 Personagem personagem = new Personagem();
 Inimigo inimigo = new Inimigo();
-Combate combate = new Combate();
+//Combate combate = new Combate();
 Round round = new Round();
 Vitoria vitoria = new Vitoria();
 Derrota derrota = new Derrota();
-Upgrade upgrade = new Upgrade();
 Itens itens = new Itens();
 int roundEspecial;
     /**
@@ -39,13 +38,8 @@ int roundEspecial;
     public Batalha() {
         initComponents();
         defNumRound();
-        definirTodasImagens(personagem);
-        corBotao();
-        setCombate();
-        System.out.println("Combate : " + combate.getNum());
-       
         
-       
+        corBotao(); 
     }
 
     /**
@@ -144,10 +138,7 @@ int roundEspecial;
         return personagem;
     }
     
-    public void setCombate(){ 
-        int t = combate.getNum();
-       combate.setNum(t++);
-    }
+    
 
     public Inimigo receberInimigo(Inimigo inimigo){
         this.inimigo = inimigo;
@@ -163,23 +154,25 @@ int roundEspecial;
         String[] monstros2 = new String[14];
         String[] monstros3 = new String[10];
         String[][] todosMonstros = new  String[3][14];
+        personagem.setBatalha(personagem.getBatalha() +1);
+        System.out.println("Batalha: " +personagem.getBatalha());
         
-       
+ 
         
         if(personagem.getBatalha() <= 2){
             lvlMonstro = 0;
-            monsterVariation = num.nextFloat()*2;
+            monsterVariation = num.nextFloat()*3;
             caminhoMonstro = num.nextInt(11);
             
         }
         else if(personagem.getBatalha() <= 4){
             lvlMonstro = 1;
-            monsterVariation = num.nextFloat()*3;
+            monsterVariation = num.nextFloat()*6;
             caminhoMonstro = num.nextInt(13);
         }
         else{
             lvlMonstro = 2;
-            monsterVariation = num.nextFloat()*4;
+            monsterVariation = num.nextFloat()*9;
             caminhoMonstro = num.nextInt(9);
         }
         //Setando poder aleatório
@@ -221,7 +214,7 @@ int roundEspecial;
            //MONSTROS NIVEL 3
          todosMonstros[2][0]= "C:\\RPGame\\src\\Imagens\\Elfo1.png";
          todosMonstros[2][1]="C:\\RPGame\\src\\Imagens\\Elfo2.png";
-         todosMonstros[2][2]="C:\\RPGame\\src\\Imagens\\Elfo3.png";
+         todosMonstros[2][2]="C:\\RPGame\\src\\Imagens\\Elfo3.jpg";
          todosMonstros[2][3]="C:\\RPGame\\src\\Imagens\\Elfo4.png";
          todosMonstros[2][4]="C:\\RPGame\\src\\Imagens\\Grifo1.png";
          todosMonstros[2][5]="C:\\RPGame\\src\\Imagens\\Grifo2.png";
@@ -271,24 +264,41 @@ int roundEspecial;
     
     public void morte(Personagem personagem, Inimigo inimigo){
         
-         if(combate.getNum()==2){
-            Personagem.setVisible(false);
-            itens.setVisible(true);
+        if((personagem.getBatalha()==3) && (inimigo.getVida()<= 0)){
+            Inimigo.setVisible(false);
+            Upgrade upgrade = new Upgrade();
+            upgrade.setVisible(true);
+            upgrade.receberPersonagem(personagem, upgrade);
             dispose();
         }
-         else if(personagem.getVida()<= 0){
+        else if((personagem.getBatalha()==6) && (inimigo.getVida()<= 0)){
+            Inimigo.setVisible(false);
+            Upgrade upgrade = new Upgrade();
+            upgrade.setVisible(true);
+            upgrade.receberPersonagem(personagem, upgrade);
+            dispose();
+        }
+        else if((personagem.getBatalha()==9) && (inimigo.getVida()<= 0)){
+            Inimigo.setVisible(false);
+            Upgrade upgrade = new Upgrade();
+            upgrade.setVisible(true);
+            upgrade.receberPersonagem(personagem, upgrade);
+            dispose();
+        }
+        
+        else if(personagem.getVida()<= 0){
             Personagem.setVisible(false);
+            
             derrota.setVisible(true);
             dispose();
         }
         else if(inimigo.getVida()<= 0){
             Inimigo.setVisible(false);
+            vitoria.definirTodasImagens(personagem);
             dispose();
-            vitoria.receberPersonagem(personagem, vitoria);
+            vitoria.receberPersonagem(personagem, vitoria); 
         } 
-        
-        
-        
+         
     }
         
     
@@ -302,7 +312,7 @@ int roundEspecial;
     }
     
     private void btnDefesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefesaActionPerformed
-       
+       Combate combate = new Combate();
         combate.lutaDef(personagem, inimigo);
         updateBarVida((int)(personagem.getVida()), (int)(inimigo.getVida()));
         round.setRound(round.getRound()+1);
@@ -313,7 +323,7 @@ int roundEspecial;
     }//GEN-LAST:event_btnDefesaActionPerformed
 
     private void btnAtaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtaqueActionPerformed
-        
+       Combate combate = new Combate();
         combate.lutaAtk(personagem, inimigo);
         updateBarVida((int)(personagem.getVida()), (int)(inimigo.getVida()));
         round.setRound(round.getRound()+1);
@@ -324,6 +334,7 @@ int roundEspecial;
 
     private void btnEspecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEspecialActionPerformed
        if(round.getRound() - roundEspecial >= 3){
+           Combate combate = new Combate();
             combate.lutaEspecial(personagem, inimigo);
             updateBarVida((int)(personagem.getVida()), (int)(inimigo.getVida()));
             round.setRound(round.getRound()+1);
