@@ -38,6 +38,7 @@ Personagem personagem = new Personagem();
         Avancar = new javax.swing.JButton();
         atk3 = new javax.swing.JLabel();
         dfs3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +58,8 @@ Personagem personagem = new Personagem();
         atk3.setText("Ataque: +3");
 
         dfs3.setText("Defesa: +3");
+
+        jLabel1.setText("Vida: +10");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -78,10 +81,12 @@ Personagem personagem = new Personagem();
                         .addComponent(Upgrade, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
+                        .addGap(48, 48, 48)
                         .addComponent(atk3)
-                        .addGap(72, 72, 72)
+                        .addGap(50, 50, 50)
                         .addComponent(dfs3)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Avancar)))
                 .addContainerGap())
@@ -99,7 +104,8 @@ Personagem personagem = new Personagem();
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(atk3)
                     .addComponent(dfs3)
-                    .addComponent(Avancar))
+                    .addComponent(Avancar)
+                    .addComponent(jLabel1))
                 .addContainerGap())
         );
 
@@ -120,6 +126,10 @@ Personagem personagem = new Personagem();
     }// </editor-fold>//GEN-END:initComponents
 
     private void AvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvancarActionPerformed
+        personagem.setAtk(personagem.getAtk()+3);
+        personagem.setDef(personagem.getDef()+3);
+        personagem.setVidaBase(personagem.getVidaBase()+10);
+        
         Batalha batalha = new Batalha();
         batalha.receberPersonagem(personagem, batalha);
         personagem.setVida(personagem.getVidaBase());
@@ -175,6 +185,7 @@ public void definirTodasImagens(){
     private javax.swing.JLabel Upgrade;
     private javax.swing.JLabel atk3;
     private javax.swing.JLabel dfs3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

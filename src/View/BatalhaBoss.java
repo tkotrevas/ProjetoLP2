@@ -27,6 +27,7 @@ Combate combate = new Combate();
 Round round = new Round();
 Vitoria vitoria = new Vitoria();
 Derrota derrota = new Derrota();
+FimJogo fimjogo= new FimJogo();
 int roundEspecial;
     /**
      * Creates new form Batalha
@@ -181,16 +182,13 @@ int roundEspecial;
             caminhoMonstro = num.nextInt(9);
         }
         //Setando poder aleatório
-        inimigo.setAtk(inimigo.getAtk() + monsterVariation);
-        inimigo.setDef(inimigo.getDef() + monsterVariation);
-        inimigo.setVida(inimigo.getVida() + monsterVariation);
+        inimigo.setAtk(inimigo.getAtk() + monsterVariation+3);
+        inimigo.setDef(inimigo.getDef() + monsterVariation+5);
+        inimigo.setVida(inimigo.getVida() + monsterVariation+5);
         
         
        
         
-        
-         
-        System.out.println("Caminho Personagem: " + personagem.getCaminhoImg());
         defImg.escalonarImagem(personagem.getCaminhoImg(), Personagem);
         defImg.escalonarImagem("C:\\RPGame\\src\\Imagens\\boss.png", Inimigo);
         
@@ -231,13 +229,17 @@ int roundEspecial;
         
         if(personagem.getVida()<= 0){
             Personagem.setVisible(false);
-            derrota.setVisible(true);
-            dispose();
+            
+            
+           derrota.setVisible(true);
+          
+           dispose();
         }
         else if(inimigo.getVida()<= 0){
             Inimigo.setVisible(false);
+            fimjogo.definirTodasImagens(personagem);
             dispose();
-            vitoria.receberPersonagem(personagem, vitoria);
+            fimjogo.receberPersonagem(personagem, fimjogo);
         } 
         
         

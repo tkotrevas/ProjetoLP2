@@ -111,7 +111,6 @@ int roundEspecial;
 
         Dialogue.setBackground(new java.awt.Color(204, 204, 204));
         Dialogue.setLabelFor(Dialogue);
-        Dialogue.setText(" Você acerta o {inimigo.nome} causando {inimigo.vida Antiga - inimigo.Vida }  de dano");
         Dialogue.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(Dialogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 272, 470, 113));
 
@@ -280,9 +279,9 @@ int roundEspecial;
         }
         else if((personagem.getBatalha()==9) && (inimigo.getVida()<= 0)){
             Inimigo.setVisible(false);
-            Upgrade upgrade = new Upgrade();
-            upgrade.setVisible(true);
-            upgrade.receberPersonagem(personagem, upgrade);
+            Final Final = new Final();
+            Final.setVisible(true);
+            Final.receberPersonagem(personagem, Final);
             dispose();
         }
         
@@ -319,6 +318,7 @@ int roundEspecial;
         morte(personagem, inimigo);
         corBotao();
         updateNumRound();
+       Dialogue.setText("Você se defende.\n O inimigo ataca.");
         
     }//GEN-LAST:event_btnDefesaActionPerformed
 
@@ -330,6 +330,7 @@ int roundEspecial;
         morte(personagem, inimigo);
         corBotao();
         updateNumRound();
+        Dialogue.setText("Você ataca com ataque comum.\n O inimigo ataca.");
     }//GEN-LAST:event_btnAtaqueActionPerformed
 
     private void btnEspecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEspecialActionPerformed
@@ -342,6 +343,7 @@ int roundEspecial;
             roundEspecial = round.getRound();
             corBotao();
             updateNumRound();
+           Dialogue.setText("Você ataca com poder especial.\n O inimigo ataca.");
        }
     }//GEN-LAST:event_btnEspecialActionPerformed
 

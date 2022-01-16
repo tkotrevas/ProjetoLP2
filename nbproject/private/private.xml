@@ -5,10 +5,14 @@
         <group>
             <file>file:/C:/RPGame/src/View/Batalha.java</file>
             <file>file:/C:/RPGame/src/View/Inicio.java</file>
-            <file>file:/C:/RPGame/src/View/Introducao.java</file>
-            <file>file:/C:/RPGame/src/Classes/Personagem.java</file>
+            <file>file:/C:/RPGame/src/View/FimJogo.java</file>
+            <file>file:/C:/RPGame/src/Classes/Monstro.java</file>
+            <file>file:/C:/RPGame/src/View/Derrota.java</file>
             <file>file:/C:/RPGame/src/View/Upgrade.java</file>
+            <file>file:/C:/RPGame/src/View/Final.java</file>
+            <file>file:/C:/RPGame/src/View/BatalhaBoss.java</file>
             <file>file:/C:/RPGame/src/View/Vitoria.java</file>
+            <file>file:/C:/RPGame/src/Classes/Inimigo.java</file>
         </group>
     </open-files>
 </project-private>
