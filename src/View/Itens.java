@@ -7,10 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Itens extends javax.swing.JFrame {
-
+BatalhaBoss batalhaBoss = new BatalhaBoss();
     public Itens() {
         initComponents();
-        definirTodasImagens();
     }
     public Personagem personagem = new Personagem();
 
@@ -172,16 +171,24 @@ public class Itens extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         personagem.setAtk(personagem.getAtk() + 2);
-        
+        dispose();
+        batalhaBoss.receberPersonagem(personagem, batalhaBoss);
+        batalhaBoss.definirTodasImagens(personagem);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         personagem.setAtk(personagem.getDef() + 2);
+        dispose();
+        batalhaBoss.receberPersonagem(personagem, batalhaBoss);
+        batalhaBoss.definirTodasImagens(personagem);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        personagem.setAtk(personagem.getVida() + 10);
+        personagem.setAtk(personagem.getVidaBase() + 10);
+        dispose();
+        batalhaBoss.receberPersonagem(personagem, batalhaBoss);
+        batalhaBoss.definirTodasImagens(personagem);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

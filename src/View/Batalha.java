@@ -27,7 +27,7 @@ Inimigo inimigo = new Inimigo();
 Round round = new Round();
 Vitoria vitoria = new Vitoria();
 Derrota derrota = new Derrota();
-Itens itens = new Itens();
+public Itens itens = new Itens();
 int roundEspecial;
     /**
      * Creates new form Batalha
@@ -213,7 +213,7 @@ int roundEspecial;
            //MONSTROS NIVEL 3
          todosMonstros[2][0]= "C:\\RPGame\\src\\Imagens\\Elfo1.png";
          todosMonstros[2][1]="C:\\RPGame\\src\\Imagens\\Elfo2.png";
-         todosMonstros[2][2]="C:\\RPGame\\src\\Imagens\\Elfo3.jpg";
+         todosMonstros[2][2]="C:\\RPGame\\src\\Imagens\\Elfo3.png";
          todosMonstros[2][3]="C:\\RPGame\\src\\Imagens\\Elfo4.png";
          todosMonstros[2][4]="C:\\RPGame\\src\\Imagens\\Grifo1.png";
          todosMonstros[2][5]="C:\\RPGame\\src\\Imagens\\Grifo2.png";
@@ -232,7 +232,7 @@ int roundEspecial;
         System.out.println("Caminho" + todosMonstros[lvlMonstro][caminhoMonstro]);
 
         
-        //caminho = "C:\\Users\\William\\Desktop\\IFSP\\2 Semestre\\LP2 - Linguagem de Programação 2\\Programas em Java\\ProjetoLP2\\src\\Imagens\\arenaOriginal.jpg";
+        //String caminho = "C:\\RPGame\\src\\Imagens\\arenaOriginal.png";
         //defImg.escalonarImagem(caminho, Background);
     }
     public void defBarVida(){
@@ -279,9 +279,8 @@ int roundEspecial;
         }
         else if((personagem.getBatalha()==9) && (inimigo.getVida()<= 0)){
             Inimigo.setVisible(false);
-            Final Final = new Final();
-            Final.setVisible(true);
-            Final.receberPersonagem(personagem, Final);
+            itens.receberPersonagem(personagem, itens);
+            itens.definirTodasImagens();
             dispose();
         }
         

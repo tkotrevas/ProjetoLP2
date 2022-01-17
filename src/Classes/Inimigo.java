@@ -18,7 +18,7 @@ public class Inimigo {
     public Inimigo() {
         atk = 2;
         def = 2;
-        vida = 70;
+        vida = 1;
         raca = "Balrogue";
     }
 

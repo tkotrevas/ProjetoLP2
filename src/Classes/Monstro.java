@@ -1,25 +1,13 @@
 
 package Classes;
-public class Monstro {
-    int ataque;
-    int defesa;
+public class Monstro extends Seres {
     int vida;
     String Tipo;
 
-    public int getAtaque() {
-        return ataque;
-    }
-
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
-    }
-
-    public int getDefesa() {
-        return defesa;
-    }
-
-    public void setDefesa(int defesa) {
-        this.defesa = defesa;
+    public Monstro(int vida, String Tipo, float atk, float def, String raca) {
+        super(atk, def, raca);
+        this.vida = vida;
+        this.Tipo = Tipo;
     }
 
     public int getVida() {
@@ -37,4 +25,29 @@ public class Monstro {
     public void setTipo(String Tipo) {
         this.Tipo = Tipo;
     }
+
+    public float getAtk() {
+        return atk;
+    }
+
+    public void setAtk(float atk) {
+        this.atk = atk;
+    }
+
+    public float getDef() {
+        return def;
+    }
+
+    public void setDef(float def) {
+        this.def = def;
+    }
+
+    public String getRaca() {
+        return raca;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
 }

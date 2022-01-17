@@ -132,7 +132,7 @@ public Object retornap (){
         p.setVida(90);
        
         p.setVidaBase(p.getVida());
-        p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\arqueiro.jpg");
+        p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\arqueiro.png");
         i.receberPersonagem(p,i);
         
         dispose();
@@ -145,7 +145,7 @@ public Object retornap (){
         p.setVida(100);
        
         p.setVidaBase(p.getVida());
-        p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\espadachim.jpg");
+        p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\espadachim.png");
         i.receberPersonagem(p,i);
         
         dispose();
@@ -159,7 +159,7 @@ public Object retornap (){
         p.setVida(75);
         
         p.setVidaBase(p.getVida());
-        p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\mago].jpg");
+        p.setCaminhoImg("C:\\RPGame\\src\\Imagens\\mago].png");
         i.receberPersonagem(p,i);
         dispose();
     }//GEN-LAST:event_btnMagoActionPerformed
